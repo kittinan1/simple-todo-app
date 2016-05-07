@@ -1,0 +1,102 @@
+<div ng-controller="mainController as mainCon">
+<div class="container">
+    <div class="row">
+        <div class="span8">
+            <!-- <div ng-controller="mainController as mainCon"> -->
+                <div class="card card-block">
+                <h4 class="bg-inverse ">My courses</h4>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Course ID</th>
+                            <th>Course</th>
+                            <th>Credit</th>
+                            <th>Drop</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="course in addedCourse">
+                        <tr>
+                            <td>{{course.id}}</td>
+                            <td>{{course.name.en}}</td>
+                            <td>{{course.credit.total}}</td>
+                            <td><button  ng-click="mainCon.drop(course)" class="btn btn-danger">Drop</button></td>
+                        </tr>
+                    </tbody>
+                     <thead>
+                        <tr>
+                            <th>Total credit</th>
+                            <th></th>
+                            <th>{{totalCredit}} / 22</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- </div> -->
+
+
+<div class="container">
+	<div class="row">
+        <div class="span8">
+        <!-- <div ng-controller="mainController as mainCon"> -->
+            <div class="col-sm-12 margin-top">
+            <a class="btn pull-xs-right" data-toggle="modal" data-target=".bd-example-modal-lg">For more detail>> </a>
+            <div class="input-group"> <span class="input-group-addon">Search</span>
+            <input id="filter" type="text" class="form-control" placeholder="Type here...">
+            </div>
+                    <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Course ID</th>
+                                    <th>Course</th>
+                                    <th>Credit</th>
+                                    <th>Enroll</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="course in courses" class="searchable">
+                                <tr>
+                                    <td>{{course.id}}</td>
+                                    <td>{{course.name.en}}</td>
+                                    <td>{{course.credit.total}}</td>
+                                    <td><button ng-hide="addedCourse.indexOf(course) != -1" ng-click="mainCon.add(course)" class="btn btn-success" >ENROLL</button>
+                                    <button ng-show="addedCourse.indexOf(course) != -1"  class="btn btn-warning disabled">ADDED</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+ 
+                        <div  class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                               <div class="text-xs-center">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Course</th>
+                                            <th>Description</th>
+                                            <th>Credit</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="course in courses" class="searchable">
+                                        <tr>
+                                            <td>{{course.id}}</td>
+                                            <td>{{course.name.en}}</td>
+                                            <td>{{course.description.en}}</td>
+                                            <td>{{course.credit.total}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+                              </div>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                </div>
+            </div>
+        </div>
+	</div>
+</div>

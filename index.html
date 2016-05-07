@@ -2,26 +2,34 @@
 <html ng-app="todoApp">
   <head>
     <!-- CSS file -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="src/css/todo.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+  
+  <link rel="stylesheet" href="src/css/todo.css">
+
   </head>
   <body>
     <!-- Import scripts -->
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
 
     <!-- App controller -->
     <script src="src/js/controller/todo.js"></script>
+    <script src="src/js/controller/main.js"></script>
     <script src="src/js/route/route.js"></script>
 
-    <!-- some navigation -->
-    <ul class="nav nav-pills">
-    <li role="presentation"><a ui-sref="home">Home</a></li>
-    <li role="presentation"><a ui-sref="changepage">Change Page</a></li>
-  </ul>
 
+    <!-- some navigation -->
+    <nav class="navbar navbar-dark bg-inverse">
+    <a href="#/Home" class = "btn btn-secondary">KASETSART UNIVERSITY</a>
+    <a href="#/information" class ="btn btn-info" >User information</a>
+    <a href="#/registration" class ="btn btn-info" >Registration</a>
+    <img src="src/408.gif" class="img-circle pull-xs-right" alt="Responsive image" width="35" height="35">
+    <a class="btn pull-xs-right">User : 5610546681</a>
+    </nav>
     <div ui-view></div>
   </body>
 </html>
+

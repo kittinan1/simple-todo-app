@@ -1,5 +1,8 @@
 angular.module('todoApp', ['ui.router'])
-  .controller('TodoListController', function () {
+  .controller('TodoListController', function ($scope) {
+
+    $scope.x = "XXXXXXXXXss";
+
     var todoList = this
     todoList.todos = [
       {text: 'learn angular', done: true},
