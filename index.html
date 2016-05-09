@@ -1,0 +1,36 @@
+<div ng-controller="mainController as mainCon">
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <!-- CSS file -->
+  <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+  
+  <link rel="stylesheet" href="src/css/todo.css">
+
+  </head>
+  <body>
+    <!-- Import scripts -->
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script> -->
+
+    <!-- App controller -->
+    <script src="src/js/controller/todo.js"></script>
+    <script src="src/js/controller/main.js"></script>
+    <script src="src/js/route/route.js"></script>
+
+
+    <!-- some navigation -->
+    <nav class="navbar navbar-dark bg-inverse">
+    <button class = "bg-circle"style="background: #ffffff; color: #000000">KASETSART UNIVERSITY</button>
+    <a ui-sref="information" ng-show="check==0" class ="btn btn-info" >User information</a>
+    <a ui-sref="registration" ng-show="check==0" class ="btn btn-info" >Registration</a>
+    <img src="src/408.gif" class="img-circle pull-xs-right" alt="Responsive image" width="35" height="35">
+    <a class="btn pull-xs-right"ng-show="check==0" >User : 5610546681</a>
+    </nav>
+    <div ui-view></div>
+  </body>
+</html>
+</div>
