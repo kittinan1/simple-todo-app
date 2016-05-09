@@ -19,8 +19,4 @@ angular.module('todoApp')
       controller: "mainController",
       templateUrl: "src/view/registration.html"
     })
-    .state('login', {
-      url: "/login",
-      templateUrl: "src/view/login.html"
-    })
 });

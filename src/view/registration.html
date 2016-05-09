@@ -2,9 +2,8 @@
 <div class="container">
     <div class="row">
         <div class="span8">
-            <!-- <div ng-controller="mainController as mainCon"> -->
                 <div class="card card-block">
-                <h4 class="bg-inverse ">My courses</h4>
+                <h4 class="bg-inverse bg-circle text-xs-center">My courses</h4>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -19,7 +18,19 @@
                             <td>{{course.id}}</td>
                             <td>{{course.name.en}}</td>
                             <td>{{course.credit.total}}</td>
-                            <td><button  ng-click="mainCon.drop(course)" class="btn btn-danger">Drop</button></td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">DROP
+                                        <span class="caret"></span>
+                                    </button>
+
+                                    <ul class="dropdown-menu" style="width: 200px">
+                                        <h5 class="bg-inverse bg-circle text-xs-center"style="height:30px">DROP {{course.id}} ?</h5>
+                                        <button type="button" class="btn btn-secondary pull-xs-left">CANCEL</button>
+                                        <button type="button" ng-click="mainCon.drop(course)" class="btn pull-xs-right" style="background: #ed674d ;color: #ffffff">CONFIRM</button>
+                                    </ul>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                      <thead>
@@ -31,21 +42,34 @@
                         </tr>
                     </thead>
                 </table>
+
+                <button class="btn btn-primary pull-xs-right" data-toggle="modal" data-target=".bd-example-modal-sm" >Export</button>
+                <div  class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-lg">
+                            <div style="border:10px solid #d5eb79" class="modal-content">
+                               <h4 class="bg-inverse text-xs-center">Export to Json</h4>
+                               <pre>
+                                    {{json}}
+                              </pre>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-<!-- </div> -->
 
 
 <div class="container">
 	<div class="row">
         <div class="span8">
-        <!-- <div ng-controller="mainController as mainCon"> -->
             <div class="col-sm-12 margin-top">
             <a class="btn pull-xs-right" data-toggle="modal" data-target=".bd-example-modal-lg">For more detail>> </a>
-            <div class="input-group"> <span class="input-group-addon">Search</span>
-            <input id="filter" type="text" class="form-control" placeholder="Type here...">
+            <div class="input-group"> 
+                <span class="input-group-addon">
+                     <img src="src/search-9-xxl.png" class="img-circle" alt="Responsive image" width="15" height="15">
+                </span>
+                <input id="filter" type="text" class="form-control" placeholder="Type here...">
             </div>
                     <table class="table table-striped">
                             <thead>
@@ -61,8 +85,18 @@
                                     <td>{{course.id}}</td>
                                     <td>{{course.name.en}}</td>
                                     <td>{{course.credit.total}}</td>
-                                    <td><button ng-hide="addedCourse.indexOf(course) != -1" ng-click="mainCon.add(course)" class="btn btn-success" >ENROLL</button>
-                                    <button ng-show="addedCourse.indexOf(course) != -1"  class="btn btn-warning disabled">ADDED</button></td>
+                                    <td>
+                                        <div class="dropup">
+                                            <button class="btn btn-success dropdown-toggle" ng-hide="addedCourse.indexOf(course) != -1" type="button" data-toggle="dropdown">ENROLL
+                                            <span class="caret"></span></button>
+                                            <button ng-show="addedCourse.indexOf(course) != -1"  class="btn btn-warning btn-circle disabled">ENROLLED</button>
+                                            <ul class="dropdown-menu" style="width: 200px">
+                                                <h5 class="bg-inverse bg-circle text-xs-center"style="height:30px">ENROLL {{course.id}} ?</h5>
+                                                <button type="button" class="btn btn-secondary pull-xs-left">CANCEL</button>
+                                                <button type="button" ng-click="mainCon.add(course)" class="btn pull-xs-right" style="background: #ed674d ;color: #ffffff">CONFIRM</button>
+                                            </ul>
+                                        </div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -94,7 +128,6 @@
                               </div>
                             </div>
                         </div>
-                        <!-- </div> -->
                 </div>
             </div>
         </div>

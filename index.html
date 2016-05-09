@@ -1,3 +1,4 @@
+<div ng-controller="mainController as mainCon">
 <!doctype html>
 <html ng-app="todoApp">
   <head>
@@ -23,13 +24,13 @@
 
     <!-- some navigation -->
     <nav class="navbar navbar-dark bg-inverse">
-    <a href="#/Home" class = "btn btn-secondary">KASETSART UNIVERSITY</a>
-    <a href="#/information" class ="btn btn-info" >User information</a>
-    <a href="#/registration" class ="btn btn-info" >Registration</a>
+    <button class = "bg-circle"style="background: #ffffff; color: #000000">KASETSART UNIVERSITY</button>
+    <a ui-sref="information" ng-show="check==0" class ="btn btn-info" >User information</a>
+    <a ui-sref="registration" ng-show="check==0" class ="btn btn-info" >Registration</a>
     <img src="src/408.gif" class="img-circle pull-xs-right" alt="Responsive image" width="35" height="35">
-    <a class="btn pull-xs-right">User : 5610546681</a>
+    <a class="btn pull-xs-right"ng-show="check==0" >User : 5610546681</a>
     </nav>
     <div ui-view></div>
   </body>
 </html>
-
+</div>
